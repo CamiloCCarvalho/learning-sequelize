@@ -6,4 +6,4 @@ const Planet = sequelize.define('planets', {
     position: DataTypes.INTEGER,
 })
 
-module.exports = Planet
+module.exports = Planet 

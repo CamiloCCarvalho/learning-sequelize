@@ -1,6 +1,7 @@
 const express = require('express')
 const routes = express.Router()
 const PlanetController = require('../controller/PlanetController')
+const SatelliteController = require('../controller/SatelliteController')
 
 //Rotas
 routes.post('/planets', PlanetController.store)
@@ -9,6 +10,7 @@ routes.put('/planets/:id', PlanetController.put)
 routes.delete('/planets/:id', PlanetController.delete)
 
 //Rota com associação do Satellite -> Planet
-routes.post('/planets/:planetId/satellites', SatelliteController.store)
+routes.post('/planets/:id/satellites', SatelliteController.store)
+routes.get('/planets/:id/satellites', SatelliteController.index)
 
 module.exports = routes
