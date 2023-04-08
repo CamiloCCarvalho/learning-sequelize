@@ -10,7 +10,7 @@ routes.put('/planets/:id', PlanetController.put)
 routes.delete('/planets/:id', PlanetController.delete)
 
 //Rota com associação do Satellite -> Planet
-routes.post('/planets/:id/satellites', SatelliteController.store)
-routes.get('/planets/:id/satellites', SatelliteController.index)
+routes.post('/planets/:planetId/satellites', SatelliteController.store)
+routes.get('/planets/:planetId/satellites', SatelliteController.index)
 
 module.exports = routes

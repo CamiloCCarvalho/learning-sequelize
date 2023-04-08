@@ -3,7 +3,7 @@ const Planet = require('../models/planet')
 
 module.exports = {
     async store (req, res) {
-        const {planetId} = req.params.id
+        const {planetId} = req.params
         const {name, serial_number} = req.body
 
         const planet = await Planet.findByPk(planetId)
@@ -15,10 +15,10 @@ module.exports = {
         return res.json(satellite)
     },
     async index (req, res) {
-        const {planetId} = req.params.id
+        const {planetId} = await req.params.planetId
 
         if(!planetId) {
-            res.send('Esse Planeta não existe')
+            res.send(`Esse planeta ${planetId} não existe`)
         }
         const planet = await Planet.findByPk(planetId, {
             include: Satellite
