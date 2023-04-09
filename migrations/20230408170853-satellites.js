@@ -20,16 +20,16 @@ module.exports = {
       },
       planetId: {
         type: Sequelize.INTEGER,
-        references: {model: 'planets', key:'id'},
+        references: {model: "planets", key:"id"},
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      createAt: {
-        type: Sequelize.DATE
+      createdAt: {
+        type: Sequelize.DATE,
       },
       updatedAt: {
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     })
   },
 

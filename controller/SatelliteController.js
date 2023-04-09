@@ -15,14 +15,17 @@ module.exports = {
         return res.json(satellite)
     },
     async index (req, res) {
-        const {planetId} = await req.params.planetId
+        const {planetId} = await req.params
 
         if(!planetId) {
             res.send(`Esse planeta ${planetId} não existe`)
         }
-        const planet = await Planet.findByPk(planetId, {
-            include: Satellite
+        const satellite = await Satellite.findAll({
+            where: {
+                planetId: planetId
+            }
         })
-        return res.json(planet)
+        const planet = await Planet.findByPk(planetId)
+        return res.json({planet, satellite}) 
     }
 }
