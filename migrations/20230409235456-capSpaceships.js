@@ -20,11 +20,16 @@ module.exports = {
       spaceshipId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        reference: {model: "spaceships", key: "id"},
+        references: {model: "spaceships", key: "id"},
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
-      }
-
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+      },
+      updatedAt:{
+        type: Sequelize.DATE,
+      },
     })
   },
 

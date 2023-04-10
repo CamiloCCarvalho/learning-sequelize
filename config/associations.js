@@ -12,15 +12,15 @@ const Cap = require('../models/cap')
     Satellite.belongsTo(Planet, {foreignKey: 'planetId', as: 'planets'})
 
     Cap.belongsToMany(Spaceship, {
-        foreignKey: capId,
-        through: "capSpaceships",
-        as: "spaceships"
+        foreignKey: 'capId',
+        through: 'capSpaceships',
+        as: 'spaceships'
     })
 
     Spaceship.belongsToMany(Cap, {
-        foreignKey: spaceshipId,
-        through: "capSpaceship",
-        as: "caps"
+        foreignKey: 'spaceshipId',
+        through: 'capSpaceships',
+        as: 'caps'
     })
 
-module.exports = {Planet, Satellite} 
+module.exports = {Planet, Satellite, Cap, Spaceship} 

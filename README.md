@@ -1,2 +1,2 @@
 # learning-sequelize
-Learning ORM Sequelize with PostgreSQL and NodeJS
+Learning ORM Sequelize with PostgreSQL / Beekeeper and NodeJS
