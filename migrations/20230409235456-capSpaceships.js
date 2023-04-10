@@ -1,0 +1,34 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable("capSpaceships", {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+      },
+      capId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: "caps", key: "id"},
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      spaceshipId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        reference: {model: "spaceships", key: "id"},
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      }
+
+    })
+  },
+
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable("capSpaceships")
+  }
+};
